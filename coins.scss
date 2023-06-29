@@ -32,6 +32,14 @@ section {
     }
   }
 }
+select::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
+option {
+  color: white;
+  background-color: rgb(45, 49, 52);
+}
 .swap-button {
   background-color: $greenLight;
   border-radius: 6px;
