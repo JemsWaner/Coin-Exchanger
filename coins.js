@@ -7,6 +7,10 @@ const ShortCurrency = document.querySelector(".short-currency");
 let coin = "DOP";
 let secondCoin;
 
+///////Putting a default text
+Currency.textContent = "1 DOP = 0.01607 EUR";
+ShortCurrency.textContent = 0.02;
+
 function Multiplication(A, B) {
   let multi = A * B;
   return multi;
@@ -57,7 +61,7 @@ NumberCounter.addEventListener("input", (e) => {
 MainSelect.addEventListener("change", () => {
   coin = MainSelect.value;
   GettingCountries();
-  Currency.textContent = `${NumberCounter.value} ${MainSelect.value} = ${showNumber}`;
+  Currency.textContent = `${NumberCounter.value} ${this.value} = ${showNumber}`;
 });
 
 SecondSelect.addEventListener("change", () => {
