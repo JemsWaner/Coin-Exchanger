@@ -49,30 +49,27 @@ async function GettingCountries() {
 
 GettingCountries();
 
-NumberCounter.addEventListener("input", (e) => {
-  let showNumber = Multiplication(e.target.value, secondCoin);
-  Currency.textContent = `${e.target.value} ${
+function Numbers(e) {
+  let showNumber = Multiplication(NumberCounter.value, secondCoin);
+  Currency.textContent = `${NumberCounter.value} ${
     MainSelect.value
   } = ${showNumber.toFixed(5)} ${SecondSelect.value}`;
   ShortCurrency.textContent = showNumber.toFixed(2);
   return showNumber;
-});
+}
+NumberCounter.addEventListener("input", Numbers);
 
 MainSelect.addEventListener("change", async () => {
   coin = MainSelect.value;
   await GettingCountries();
-  Currency.textContent = `${NumberCounter.value} ${this.value} = ${showNumber}`;
+  Numbers();
 });
 
 SecondSelect.addEventListener("change", async () => {
   await GettingCountries();
-  Currency.textContent = `${NumberCounter.value} ${MainSelect.value} = ${showNumber}`;
+  Numbers();
   alert(secondCoin);
 });
-
-console.log(
-  "If the country's options aren't showing up, wait some seconds or reload the page again"
-);
 
 Button.addEventListener("click", () => {
   //In the variable I save the first value, because I'll alter it later...So It's better to have the initial value at the moment of giving the value to the SecondSelect
@@ -81,7 +78,7 @@ Button.addEventListener("click", () => {
   GettingCountries();
   MainSelect.value = SecondSelect.value;
   SecondSelect.value = upValue;
-
+  Numbers();
   ///Here below I just want to make sure if the coin values are being change
   console.log(MainSelect.value);
   console.log(SecondSelect.value);
